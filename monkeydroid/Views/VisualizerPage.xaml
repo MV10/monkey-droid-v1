@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:monkeydroid.Models"
+             x:Class="monkeydroid.Views.VisualizerPage"
+             Title="Visualizer">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Refresh" Clicked="Refresh_Clicked" IconImageSource="{FontImage Glyph='@', Color=White, Size=22}" />
+    </ContentPage.ToolbarItems>
+
+    <Grid x:Name="gridContent"
+          RowDefinitions="Auto,*,Auto,Auto">
+
+        <Label Text="{Binding ServerInfoHeader}"
+               Grid.Row="0"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+
+        <CollectionView x:Name="listVisualizers"
+                            Grid.Row="1"
+                            ItemsSource="{Binding Visualizers}"
+                            Margin="20"
+                            SelectionMode="Single"
+                            SelectionChanged="listVisualizers_SelectionChanged">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label Text="{Binding Name}" FontSize="18"/>
+                        <Label Text="{Binding Description}" FontSize="14" TextColor="Silver"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="Reload" 
+                Grid.Row="2"
+                Padding="10"
+                MaximumWidthRequest="150"
+                Clicked="Reload_Clicked" />
+    </Grid>
+</ContentPage>
+    

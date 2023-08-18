@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="monkeydroid.Views.ServerListPage"
+             Title="Server List">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="Add_Clicked" IconImageSource="{FontImage Glyph='+', Color=White, Size=22}" />
+    </ContentPage.ToolbarItems>
+
+    <Grid x:Name="gridContent"
+          RowDefinitions="Auto,*,Auto">
+
+        <Label Text="{Binding ServerInfoHeader}"
+               Grid.Row="0"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+
+        <CollectionView x:Name="listServers"
+                        Grid.Row="1"
+                        ItemsSource="{Binding Servers}"
+                        Margin="20"
+                        SelectionMode="Single"
+                        SelectionChanged="listServers_SelectionChanged">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label Text="{Binding Hostname}" FontSize="22"/>
+                        <Label Text="{Binding Port}" FontSize="14" TextColor="Silver"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>
+    

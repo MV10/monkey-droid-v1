@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="monkeydroid.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:monkeydroid.Views"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <ShellContent Route="serverlist"
+            Title="Servers"
+            ContentTemplate="{DataTemplate views:ServerListPage}"
+            Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png'}" />
+
+        <ShellContent Route="playlist"
+            Title="Playlist"
+            ContentTemplate="{DataTemplate views:PlaylistPage}"
+            Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png'}" />
+
+        <ShellContent Route="viz"
+            Title="Viz"
+            ContentTemplate="{DataTemplate views:VisualizerPage}"
+            Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png'}" />
+
+        <ShellContent Route="controls"
+            Title="Controls"
+            ContentTemplate="{DataTemplate views:ControlsPage}"
+            Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png'}" />
+
+        <ShellContent Route="utils"
+            Title="Utils"
+            ContentTemplate="{DataTemplate views:UtilitiesPage}"
+            Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png'}" />
+
+        <ShellContent Route="about"
+            Title="About"
+            ContentTemplate="{DataTemplate views:AboutPage}"
+            Icon="{OnPlatform 'icon_about.png', iOS='icon_about_ios.png'}" />
+    </TabBar>
+
+</Shell>
