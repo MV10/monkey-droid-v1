@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:monkeydroid.Models"
              x:Class="monkeydroid.Views.PlaylistPage"
-             Title="Playlist">
+             Title="Playlists">
     
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Refresh" Clicked="Refresh_Clicked" IconImageSource="{FontImage Glyph='@', Color=White, Size=22}" />
