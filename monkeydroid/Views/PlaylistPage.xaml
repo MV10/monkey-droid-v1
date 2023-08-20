@@ -6,7 +6,7 @@
              Title="Playlists">
     
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Refresh" Clicked="Refresh_Clicked" IconImageSource="{FontImage Glyph='@', Color=White, Size=22}" />
+        <ToolbarItem Text="Refresh" Clicked="Refresh_Clicked" IconImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf0450;', Color=White, Size=22}" />
     </ContentPage.ToolbarItems>
 
     <Grid x:Name="gridContent"
@@ -40,7 +40,8 @@
         <Button Text="Next viz" 
                 Grid.Row="2"
                 MaximumWidthRequest="150"
-                Clicked="NextViz_Clicked" />
+                Clicked="NextViz_Clicked" 
+                ImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf04ad;', Color='Black', Size=16}" />
 
     </Grid>
 </ContentPage>

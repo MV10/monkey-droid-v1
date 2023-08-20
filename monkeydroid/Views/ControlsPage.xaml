@@ -9,9 +9,93 @@
         <models:Controls />
     </ContentPage.BindingContext>
 
-    <VerticalStackLayout x:Name="contentLayout">
+    <Grid x:Name="gridContent"
+          RowDefinitions="Auto,*,*,*,*,*,Auto"
+          ColumnDefinitions="*,*">
+
         <Label Text="{Binding ServerInfoHeader}"
-               VerticalOptions="Center"
+               Grid.ColumnSpan="2"
                HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+        <Button Text="Frame rate"
+                Grid.Row="1"
+                Grid.Column="0"
+                VerticalOptions="Center"
+                MaximumWidthRequest="250"
+                Clicked="Clicked_FPS"
+                ImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf029a;', Color='Black', Size=20}" />
+
+        <Button Text="Info"
+                Grid.Row="1"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                MaximumWidthRequest="250"
+                Clicked="Clicked_Info"
+                ImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf064e;', Color='Black', Size=20}" />
+
+        <Button Text="Next in playlist"
+                Grid.Row="2"
+                Grid.Column="0"
+                VerticalOptions="Center"
+                MaximumWidthRequest="250"
+                Clicked="Clicked_Next"
+                ImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf04ad;', Color='Black', Size=20}" />
+
+        <Button Text="Reload visualizer"
+                Grid.Row="2"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                MaximumWidthRequest="250"
+                Clicked="Clicked_Reload"
+                ImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf021;', Color='Black', Size=20}" />
+
+        <Button Text="Idle visualizer"
+                Grid.Row="3"
+                Grid.Column="0"
+                VerticalOptions="Center"
+                MaximumWidthRequest="250"
+                Clicked="Clicked_Idle"
+                ImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf4e3;', Color='Black', Size=20}" />
+
+        <Button Text="Process ID"
+                Grid.Row="3"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                MaximumWidthRequest="250"
+                Clicked="Clicked_PID"
+                ImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf4f7;', Color='Black', Size=20}" />
+
+        <Button Text="Pause"
+                Grid.Row="4"
+                Grid.Column="0"
+                VerticalOptions="Center"
+                MaximumWidthRequest="250"
+                Clicked="Clicked_Pause"
+                ImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf03e4;', Color='Black', Size=20}" />
+
+        <Button Text="Resume"
+                Grid.Row="4"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                MaximumWidthRequest="250"
+                Clicked="Clicked_Resume"
+                ImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf040e;', Color='Black', Size=20}" />
+
+        <Button Text="Log level"
+                Grid.Row="5"
+                Grid.Column="0"
+                VerticalOptions="Center"
+                MaximumWidthRequest="250"
+                Clicked="Clicked_Log"
+                ImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf4ed;', Color='Black', Size=20}" />
+
+        <Button Text="Quit"
+                Grid.Row="5"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                MaximumWidthRequest="250"
+                Clicked="Clicked_Quit"
+                ImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf0a48;', Color='Black', Size=20}" />
+    </Grid>
+    
 </ContentPage>

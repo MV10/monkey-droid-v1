@@ -10,32 +10,32 @@
         <ShellContent Route="serverlist"
             Title="Servers"
             ContentTemplate="{DataTemplate views:ServerListPage}"
-            Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png'}" />
+            Icon="{FontImage FontFamily='MonoGlyph', Glyph='&#xf05a9;', Size=18}" />
 
         <ShellContent Route="playlist"
             Title="Playlist"
             ContentTemplate="{DataTemplate views:PlaylistPage}"
-            Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png'}" />
+            Icon="{FontImage FontFamily='MonoGlyph', Glyph='&#xf0411;', Size=18}" />
 
         <ShellContent Route="viz"
             Title="Viz"
             ContentTemplate="{DataTemplate views:VisualizerPage}"
-            Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png'}" />
+            Icon="{FontImage FontFamily='MonoGlyph', Glyph='&#xf0e0c;', Size=18}" />
 
         <ShellContent Route="controls"
             Title="Controls"
             ContentTemplate="{DataTemplate views:ControlsPage}"
-            Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png'}" />
+            Icon="{FontImage FontFamily='MonoGlyph', Glyph='&#xf05b7;', Size=18}" />
 
         <ShellContent Route="utils"
             Title="Utils"
             ContentTemplate="{DataTemplate views:UtilitiesPage}"
-            Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png'}" />
+            Icon="{FontImage FontFamily='MonoGlyph', Glyph='&#xf4b5;', Size=18}" />
 
         <ShellContent Route="about"
             Title="About"
             ContentTemplate="{DataTemplate views:AboutPage}"
-            Icon="{OnPlatform 'icon_about.png', iOS='icon_about_ios.png'}" />
+            Icon="{FontImage FontFamily='MonoGlyph', Glyph='&#xea74;', Size=18}" />
     </TabBar>
 
 </Shell>

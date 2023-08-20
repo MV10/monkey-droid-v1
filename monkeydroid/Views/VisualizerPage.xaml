@@ -6,7 +6,7 @@
              Title="Visualizers">
     
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Refresh" Clicked="Refresh_Clicked" IconImageSource="{FontImage Glyph='@', Color=White, Size=22}" />
+        <ToolbarItem Text="Refresh" Clicked="Refresh_Clicked" IconImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf0450;', Color=White, Size=22}" />
     </ContentPage.ToolbarItems>
 
     <Grid x:Name="gridContent"
@@ -42,7 +42,8 @@
                 Grid.Row="2"
                 Padding="10"
                 MaximumWidthRequest="150"
-                Clicked="Reload_Clicked" />
+                Clicked="Reload_Clicked"
+                ImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf021;', Color='Black', Size=16}" />
     </Grid>
 </ContentPage>
     

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="monkeydroid.Views.ServerPage"
              Title="Add Server">
+    
     <VerticalStackLayout Spacing="10" Margin="5">
         <Label FontSize="22" FontAttributes="Bold" Text="Server and Port" VerticalOptions="Start" />
         <Label Text="Enter the server and port number of the monkey-hi-hat program you want to control." />

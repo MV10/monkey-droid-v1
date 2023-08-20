@@ -5,6 +5,7 @@ internal class About
 {
     public string Title => AppInfo.Name;
     public string Version => AppInfo.VersionString;
-    public string MoreInfoUrl => "https://github.com/MV10/monkey-hi-hat";
-    public string Message => "Remote control for the monkey-hi-hat music visualizer.";
+    public string MonkeyDroidRepo => "https://github.com/MV10/monkey-droid";
+    public string MonkeyHiHatRepo => "https://github.com/MV10/monkey-hi-hat";
+    public string Message => "Remote control for the Monkey-Hi-Hat music visualizer.";
 }

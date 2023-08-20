@@ -5,7 +5,7 @@
              Title="Server List">
     
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="Add_Clicked" IconImageSource="{FontImage Glyph='+', Color=White, Size=22}" />
+        <ToolbarItem Text="Add" Clicked="Add_Clicked" IconImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf055;', Color=White, Size=22}" />
     </ContentPage.ToolbarItems>
 
     <Grid x:Name="gridContent"

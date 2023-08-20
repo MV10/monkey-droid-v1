@@ -1,15 +1,17 @@
+using CommandLineSwitchPipe;
+using Microsoft.Maui.Controls;
 using monkeydroid.Utilities;
 
 namespace monkeydroid.Views;
 
 public partial class UtilitiesPage : ContentPage
 {
-    private readonly Layout activityIndicatorLayout;
+    private readonly Layout activityIndicator;
 
     public UtilitiesPage()
 	{
 		InitializeComponent();
-        activityIndicatorLayout = contentLayout.AddActivityIndicator();
+        activityIndicator = gridContent.AddActivityIndicator(0, 4);
     }
 
     protected override async void OnAppearing()
@@ -21,13 +23,44 @@ public partial class UtilitiesPage : ContentPage
         }
     }
 
-    private async void DeleteCache_Clicked(object sender, EventArgs e)
+    protected async void EntryCompleted(object sender, EventArgs e)
     {
-        if(await DisplayAlert("Delete?", "Do you wish to delete all cached server information?", "Delete", "Cancel"))
+        var text = entryCommand.Text.Trim().ToLowerInvariant();
+        entryCommand.Text = string.Empty;
+        if (text.Length == 0) return;
+
+        if(text.Equals("cls"))
         {
-            if (File.Exists(ServerCache.Pathname())) File.Delete(ServerCache.Pathname());
-            MauiProgram.ServerId = string.Empty;
-            await Shell.Current.GoToAsync("//serverlist");
+            labelResponses.Text = string.Empty;
+            return;
+        }
+
+        labelResponses.Text += $"\n> {text}\n";
+
+        var args = text.Split(' ', StringSplitOptions.TrimEntries);
+        var server = MauiProgram.Cache.GetServer(MauiProgram.ServerId);
+
+        try
+        {
+            activityIndicator.IsVisible = true;
+            var success = await CommandLineSwitchServer.TrySendArgs(args, server.Hostname, server.PortNumber);
+            activityIndicator.IsVisible = false;
+            if (success)
+            {
+                labelResponses.Text += CommandLineSwitchServer.QueryResponse;
+            }
+            else
+            {
+                labelResponses.Text += "Failed to send command.";
+            }
+        }
+        catch (Exception ex)
+        {
+            labelResponses.Text += $"Error communicating with {server.HostAndPort}.\n{ex}: {ex.Message}";
+        }
+        finally
+        {
+            activityIndicator.IsVisible = false;
         }
     }
 }

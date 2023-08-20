@@ -7,20 +7,42 @@
     <ContentPage.BindingContext>
         <models:About />
     </ContentPage.BindingContext>
-    
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Clear Cache" Clicked="Clicked_DeleteCache" IconImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf05e8;', Color=White, Size=22}" />
+    </ContentPage.ToolbarItems>
+
     <VerticalStackLayout Spacing="10" Margin="10">
         <HorizontalStackLayout Spacing="10">
+            
             <Image Source="volt_icon.png"
                    SemanticProperties.Description="Volt, the monkey-hi-hat mascot"
                    HeightRequest="64" />
+            
             <Label FontSize="22" FontAttributes="Bold" Text="{Binding Title}" VerticalOptions="End" />
+
             <Label FontSize="22" Text="{Binding Version}" VerticalOptions="End" />
+
         </HorizontalStackLayout>
 
         <Label Text="{Binding Message}" />
-        
-        <Button Text="Learn more..." 
-                MaximumWidthRequest="150"
-                Clicked="LearnMore_Clicked" />
+
+        <HorizontalStackLayout Spacing="30" 
+                               HorizontalOptions="Center"
+                               Padding="30">
+            
+            <Button Text="About Monkey-Droid..." 
+                    WidthRequest="300"
+                    Padding="10"
+                    Clicked="Clicked_MonkeyDroid" 
+                    ImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xea84;', Color='Black', Size=16}" />
+
+            <Button Text="About Monkey-Hi-Hat..." 
+                    WidthRequest="300"
+                    Padding="10"
+                    Clicked="Clicked_MonkeyHiHat" 
+                    ImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xea84;', Color='Black', Size=16}" />
+
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
