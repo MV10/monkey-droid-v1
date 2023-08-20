@@ -11,7 +11,9 @@
 
     <Grid x:Name="gridContent"
           RowDefinitions="Auto,*,*,*,*,*,Auto"
-          ColumnDefinitions="*,*">
+          ColumnDefinitions="*,*"
+          ColumnSpacing="10"
+          Margin="10">
 
         <Label Text="{Binding ServerInfoHeader}"
                Grid.ColumnSpan="2"

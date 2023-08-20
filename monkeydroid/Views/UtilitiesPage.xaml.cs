@@ -62,5 +62,8 @@ public partial class UtilitiesPage : ContentPage
         {
             activityIndicator.IsVisible = false;
         }
+
+        await Task.Delay(250); // give the label time to update
+        await scrollView.ScrollToAsync(0, double.MaxValue, true);
     }
 }
