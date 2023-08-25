@@ -31,8 +31,16 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout>
-                        <Label Text="{Binding Name}" FontSize="18"/>
-                        <Label Text="{Binding Description}" FontSize="14" TextColor="Silver"/>
+                        <Label Text="{Binding Name}" 
+                               FontSize="18"/>
+                        <Label FontSize="14" TextColor="Silver">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding AudioIcon}" FontFamily="MonoGlyph" TextColor="Silver"/>
+                                    <Span Text="{Binding Description}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

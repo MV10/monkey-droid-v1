@@ -56,6 +56,11 @@ public partial class ServerListPage : ContentPage
 
             if (action.Equals("Edit"))
             {
+                if(MauiProgram.ServerId.Equals(server.Id))
+                {
+                    await MauiProgram.AbortReadVisualizerDetails();
+                    MauiProgram.ServerId = string.Empty;
+                }
                 await Shell.Current.GoToAsync($"server?{nameof(ServerPage.ItemId)}={server.Id}");
                 return;
             }
@@ -65,8 +70,10 @@ public partial class ServerListPage : ContentPage
 
             if (action.Equals("Use"))
             {
+                await MauiProgram.AbortReadVisualizerDetails();
                 MauiProgram.ServerId = server.Id;
                 await Shell.Current.GoToAsync("//playlist");
+                await MauiProgram.BeginReadVisualizerDetails();
                 return;
             }
 

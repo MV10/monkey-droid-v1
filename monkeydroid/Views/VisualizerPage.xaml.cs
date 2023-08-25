@@ -42,7 +42,7 @@ public partial class VisualizerPage : ContentPage
         try
         {
             activityIndicator.IsVisible = true;
-            var success = await CommandLineSwitchServer.TrySendArgs(new string[] { "--monkey.droid", "viz" }, server.Hostname, server.PortNumber);
+            var success = await CommandLineSwitchServer.TrySendArgs(new string[] { "--md.list", "viz" }, server.Hostname, server.PortNumber);
             activityIndicator.IsVisible = false;
 
             if (success)
@@ -62,7 +62,7 @@ public partial class VisualizerPage : ContentPage
                     }
                     else
                     {
-                        server.Visualizers = new(results.Select(v => new VisualizerFile() { Name = v, Description = "(Description not loaded yet)" }).ToList());
+                        server.Visualizers = new(results.Select(v => new VisualizerFile() { Name = v }).ToList());
                     }
                     MauiProgram.SaveCache();
                     SetBindingContext();

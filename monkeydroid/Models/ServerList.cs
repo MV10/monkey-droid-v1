@@ -8,7 +8,7 @@ namespace monkeydroid.Models;
 internal class ServerList
 {
     [JsonIgnore]
-    public string ServerInfoHeader { get => MauiProgram.GetServerInfoHeader(); }
+    public string ServerInfoHeader { get => MauiProgram.GetServerPageHeader(); }
 
     public ObservableCollection<Server> Servers { get; private set; } = MauiProgram.Cache.Servers;
 

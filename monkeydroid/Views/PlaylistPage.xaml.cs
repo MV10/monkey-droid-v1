@@ -42,7 +42,7 @@ public partial class PlaylistPage : ContentPage
         try
         {
             activityIndicator.IsVisible = true;
-            var success = await CommandLineSwitchServer.TrySendArgs(new string[] { "--monkey.droid", "playlists" }, server.Hostname, server.PortNumber);
+            var success = await CommandLineSwitchServer.TrySendArgs(new string[] { "--md.list", "playlists" }, server.Hostname, server.PortNumber);
             activityIndicator.IsVisible = false;
 
             if (success)
@@ -65,6 +65,7 @@ public partial class PlaylistPage : ContentPage
                         server.Playlists = new(results.Select(p => new PlaylistFile() { Name = p }).ToList());
                     }
                     MauiProgram.SaveCache();
+                    await MauiProgram.BeginReadVisualizerDetails();
                     SetBindingContext();
                 }
             }

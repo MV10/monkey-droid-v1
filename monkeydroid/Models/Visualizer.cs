@@ -8,7 +8,7 @@ namespace monkeydroid.Models;
 internal class Visualizer
 {
     [JsonIgnore]
-    public string ServerInfoHeader { get => MauiProgram.GetServerInfoHeader(ServerHeaderTimestamp.Visualizers); }
+    public string ServerInfoHeader { get => MauiProgram.GetServerPageHeader(ServerHeaderTimestamp.Visualizers); }
 
     public ObservableCollection<VisualizerFile> Visualizers { get; set; } = new();
 }

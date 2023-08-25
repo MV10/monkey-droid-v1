@@ -25,6 +25,7 @@ public partial class AboutPage : ContentPage
     {
         if (await DisplayAlert("Delete?", "Do you wish to delete all cached server information?", "Delete", "Cancel"))
         {
+            await MauiProgram.AbortReadVisualizerDetails();
             if (File.Exists(ServerCache.Pathname())) File.Delete(ServerCache.Pathname());
             MauiProgram.ServerId = string.Empty;
         }

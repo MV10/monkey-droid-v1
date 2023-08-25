@@ -11,10 +11,11 @@ public static class MauiProgram
 	internal static ServerCache Cache = new();
     internal static string ServerId = string.Empty;
 
+    private static CancellationTokenSource ctsBackgroundDetailReader = null;
+    private static Task backgroundDetailReader = null;
+
 	public static MauiApp CreateMauiApp()
 	{
-        //if (File.Exists(ServerCache.Pathname())) File.Delete(ServerCache.Pathname());
-
         LoadCache();
 
 		var builder = MauiApp.CreateBuilder();
@@ -53,7 +54,31 @@ public static class MauiProgram
     internal static Server GetCurrentServer()
         => Cache.GetServer(ServerId);
 
-    internal static string GetServerInfoHeader(ServerHeaderTimestamp timestampType = ServerHeaderTimestamp.None)
+    // call this whenever the current server changes or the playlist is refreshed
+    internal static async Task BeginReadVisualizerDetails()
+    {
+        if (backgroundDetailReader is not null) await AbortReadVisualizerDetails();
+
+        var server = GetCurrentServer();
+        if (server is null) return;
+
+        ctsBackgroundDetailReader = new();
+        var reader = new BackgroundDetailReader(server);
+        var vizCopy = server.Visualizers.ToList();
+        backgroundDetailReader = Task.Run(() => reader.RequestVisualizerDetailsAsync(vizCopy, ctsBackgroundDetailReader.Token));
+    }
+
+    // safe to call this without knowing if the read is actually happening
+    internal static async Task AbortReadVisualizerDetails()
+    {
+        if (backgroundDetailReader is null || ctsBackgroundDetailReader is null) return;
+        ctsBackgroundDetailReader.Cancel();
+        await backgroundDetailReader;
+        ctsBackgroundDetailReader = null;
+        backgroundDetailReader = null;
+    }
+
+    internal static string GetServerPageHeader(ServerHeaderTimestamp timestampType = ServerHeaderTimestamp.None)
     {
         if (string.IsNullOrEmpty(ServerId)) return "·· no server selected ··";
         var server = Cache.GetServer(ServerId);
