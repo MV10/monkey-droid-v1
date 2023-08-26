@@ -16,4 +16,4 @@ Known issues:
 * Font glyphs clipped on Android ([reported](https://github.com/dotnet/maui/issues/16880))
 * Font glyph poor quality on Windows ([reported](https://github.com/dotnet/maui/issues/6043#issuecomment-1685032632))
 * Make Util page auto-prefix command with "--" (Android convenience)
-* Needs AppIcon resources
+* Background updates of visualizer details don't immediately show on-screen

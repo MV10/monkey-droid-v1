@@ -14,5 +14,12 @@ internal class VisualizerFile
     public bool UsesAudio { get; set; } = false;
 
     [JsonIgnore]
-    public string AudioIcon { get => UsesAudio ? "\U000F075A " : "\U000F075B "; }
+    public string AudioIcon 
+    {
+        get
+        {
+            if (Description.Equals(DefaultDescription)) return "\U0000F420 ";
+            return UsesAudio ? "\U000F075A " : "\U000F075B ";
+        }
+    }
 }
