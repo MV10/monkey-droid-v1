@@ -50,31 +50,47 @@ public static class MauiProgram
         foreach (var s in Cache.Servers) Debug.WriteLine($"...{s.Id} {s.Hostname}:{s.Port}");
     }
 
+    internal static async Task ClearCache()
+    {
+        await AbortReadVisualizerDetails();
+        Cache.Clear();
+        ServerId = string.Empty;
+    }
+
     internal static Server GetCurrentServer()
         => Cache.GetServer(ServerId);
 
     // call this whenever the current server changes or the playlist is refreshed
     internal static async Task BeginReadVisualizerDetails()
     {
-        if (backgroundDetailReader is not null) await AbortReadVisualizerDetails();
-
         var server = GetCurrentServer();
         if (server is null) return;
+
+        Debug.WriteLine("MauiProgram.BeginReadVisualizerDetails - start");
+
+        if (backgroundDetailReader is not null) await AbortReadVisualizerDetails();
 
         ctsBackgroundDetailReader = new();
         var reader = new BackgroundDetailReader(server);
         var vizCopy = server.Visualizers.ToList();
         backgroundDetailReader = Task.Run(() => reader.RequestVisualizerDetailsAsync(vizCopy, ctsBackgroundDetailReader.Token));
+
+        Debug.WriteLine("MauiProgram.BeginReadVisualizerDetails - running");
     }
 
     // safe to call this without knowing if the read is actually happening
     internal static async Task AbortReadVisualizerDetails()
     {
         if (backgroundDetailReader is null || ctsBackgroundDetailReader is null) return;
+
+        Debug.WriteLine("MauiProgram.AbortReadVisualizerDetails - start");
+
         ctsBackgroundDetailReader.Cancel();
         await backgroundDetailReader;
         ctsBackgroundDetailReader = null;
         backgroundDetailReader = null;
+
+        Debug.WriteLine("MauiProgram.AbortReadVisualizerDetails - exit");
     }
 
     internal static string GetServerPageHeader()

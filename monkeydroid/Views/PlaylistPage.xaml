@@ -41,7 +41,7 @@
                 Grid.Row="2"
                 MaximumWidthRequest="150"
                 Clicked="NextViz_Clicked" 
-                ImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf04ad;', Color='Black', Size=16}" />
+                ImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf0211;', Color='Black', Size=16}" />
 
     </Grid>
 </ContentPage>

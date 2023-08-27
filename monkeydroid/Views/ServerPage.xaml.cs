@@ -69,4 +69,20 @@ public partial class ServerPage : ContentPage
             Debug.WriteLine("ServerPage.SaveButton: BindingContext was not Models.Server type");
         }
     }
+
+    private void txtHostname_Loaded(object sender, EventArgs e)
+    {
+        txtHostname.Focus();
+    }
+
+    // https://stackoverflow.com/a/76082113/152997
+    private void Editor_Focused(object sender, FocusEventArgs e)
+    {
+        Dispatcher.Dispatch(() => 
+        {
+            var editor = sender as Editor;
+            editor.CursorPosition = 0;
+            editor.SelectionLength = editor.Text == null ? 0 : editor.Text.Length;
+        });
+    }
 }

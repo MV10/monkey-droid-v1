@@ -26,6 +26,7 @@ internal class ServerCache
     public void Clear()
     {
         Debug.WriteLine("CachedData.Clear");
+        SavedTimestamp = DateTime.MinValue;
         Servers.Clear();
     }
 

@@ -44,6 +44,7 @@ public partial class VisualizerPage : ContentPage
         try
         {
             activityIndicator.IsVisible = true;
+            await MauiProgram.AbortReadVisualizerDetails();
             var success = await CommandLineSwitchServer.TrySendArgs(new string[] { "--md.list", "viz" }, server.Hostname, server.PortNumber);
             activityIndicator.IsVisible = false;
 
@@ -68,6 +69,7 @@ public partial class VisualizerPage : ContentPage
                     }
                     MauiProgram.SaveCache();
                     SetBindingContext();
+                    await MauiProgram.BeginReadVisualizerDetails();
                 }
             }
             else

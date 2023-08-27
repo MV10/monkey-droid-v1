@@ -50,12 +50,12 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <Button Text="Reload" 
+        <Button Text="Restart" 
                 Grid.Row="2"
                 Padding="10"
                 MaximumWidthRequest="150"
                 Clicked="Reload_Clicked"
-                ImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf021;', Color='Black', Size=16}" />
+                ImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf110c;', Color='Black', Size=16}" />
     </Grid>
 </ContentPage>
     

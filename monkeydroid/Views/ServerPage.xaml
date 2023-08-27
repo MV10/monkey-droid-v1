@@ -12,13 +12,16 @@
         <Editor x:Name="txtHostname"
                 Placeholder="Enter server name"
                 Text="{Binding Hostname}"
-                MaxLength="253"/>
+                MaxLength="253"
+                Loaded="txtHostname_Loaded"
+                Focused="Editor_Focused"/>
 
         <Editor x:Name="txtPort"
                 Placeholder="Enter port number"
                 Text="{Binding Port}"
                 MaxLength="5"
-                Keyboard="Numeric"/>
+                Keyboard="Numeric"
+                Focused="Editor_Focused"/>
 
         <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
             <Button Text="Save"

@@ -38,10 +38,10 @@ internal class BackgroundDetailReader
     // cancel via AbortReadVisualizerDetails
     public async Task RequestVisualizerDetailsAsync(IReadOnlyList<VisualizerFile> vizList, CancellationToken cancellationToken)
     {
-        Debug.WriteLine($"Starting background reads at {DateTime.Now}");
-
         // abort if we don't have any viz loaded or all descriptions were already loaded
         if (vizList.Count == 0 || !vizList.Any(v => v.Description.Equals(VisualizerFile.DefaultDescription))) return;
+
+        Debug.WriteLine($"Starting background reads at {DateTime.Now}");
 
         try
         {

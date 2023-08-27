@@ -4,6 +4,11 @@ using System.Text.Json.Serialization;
 
 namespace monkeydroid.Content;
 
+// Since MAUI creates new View Model objects on every page-load
+// and the only ObservableCollection referencing Server objects
+// is ServerListPage which can't modify Server objects internally,
+// there is no need to implement change notification.
+
 internal class Server
 {
     public string Id { get; set; } = Guid.NewGuid().ToString("N");

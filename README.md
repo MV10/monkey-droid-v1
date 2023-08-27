@@ -2,7 +2,7 @@
 
 A simple remote-control UI for the [monkey-hi-hat](https://github.com/MV10/monkey-hi-hat) audio visualization app.
 
-> Version 1.0.0 has been released! Install from [here](https://github.com/MV10/monkey-hi-hat/releases).
+> Version 1.0.0 has been released! Install from the monkey-hi-hat [release](https://github.com/MV10/monkey-hi-hat/releases) page.
 
 Requires version 1.1.0 or newer of monkey-hi-hat.
 
@@ -14,8 +14,6 @@ The program uses the .NET MAUI framework, which currently forces me to use .NET7
 
 ### Known issues:
 * "Busy spinner" doesn't block access to tabs / toolbar
-* _About_ -> _Delete cache_ doesn't clear memory on Android
 * Font glyphs clipped on Android ([reported](https://github.com/dotnet/maui/issues/16880))
 * Font glyph poor quality on Windows ([reported](https://github.com/dotnet/maui/issues/6043#issuecomment-1685032632))
 * Android convenience: Make Util page auto-prefix command with "--"
-* Background updates of visualizer details don't immediately show on-screen
