@@ -1,9 +1,8 @@
-﻿
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Text.Json.Serialization;
 
-namespace monkeydroid.Models;
+namespace monkeydroid.Content;
 
 internal class Server
 {

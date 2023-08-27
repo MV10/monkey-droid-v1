@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:models="clr-namespace:monkeydroid.Models"
+             xmlns:models="clr-namespace:monkeydroid.ViewModels"
              x:Class="monkeydroid.Views.VisualizerPage"
              Title="Visualizers">
     
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Refresh" Clicked="Refresh_Clicked" IconImageSource="{FontImage FontFamily='MonoGlyph', Glyph='&#xf0450;', Color=White, Size=22}" />
     </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <models:AudioIconConverter x:Key="AudioIcon"/>
+    </ContentPage.Resources>
 
     <Grid x:Name="gridContent"
           RowDefinitions="Auto,*,Auto,Auto">
@@ -36,7 +40,7 @@
                         <Label FontSize="14" TextColor="Silver">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="{Binding AudioIcon}" FontFamily="MonoGlyph" TextColor="Silver"/>
+                                    <Span Text="{Binding UsesAudio, Converter={StaticResource AudioIcon}}" FontFamily="MonoGlyph" TextColor="Silver"/>
                                     <Span Text="{Binding Description}"/>
                                 </FormattedString>
                             </Label.FormattedText>

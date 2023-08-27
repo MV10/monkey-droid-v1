@@ -11,13 +11,13 @@ public partial class AboutPage : ContentPage
 
     private async void Clicked_MonkeyDroid(object sender, EventArgs e)
     {
-        if (BindingContext is Models.About about)
+        if (BindingContext is ViewModels.About about)
             await Launcher.Default.OpenAsync(about.MonkeyDroidRepo);
     }
 
     private async void Clicked_MonkeyHiHat(object sender, EventArgs e)
     {
-        if (BindingContext is Models.About about)
+        if (BindingContext is ViewModels.About about)
             await Launcher.Default.OpenAsync(about.MonkeyHiHatRepo);
     }
 

@@ -1,9 +1,10 @@
 ﻿
+using monkeydroid.Content;
 using monkeydroid.Utilities;
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
 
-namespace monkeydroid.Models;
+namespace monkeydroid.ViewModels;
 
 internal class Visualizer
 {

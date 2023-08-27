@@ -1,4 +1,5 @@
 
+using monkeydroid.Content;
 using monkeydroid.Utilities;
 using System.Diagnostics;
 
@@ -27,7 +28,7 @@ public partial class ServerPage : ContentPage
     {
         var model = MauiProgram.Cache.Servers
             .FirstOrDefault(s => s.Id.Equals(id)) 
-            ?? new Models.Server();
+            ?? new Server();
         BindingContext = model;
         Debug.WriteLine($"ServerPage.LoadServer\trequested: {id}\treturned: {model.Id}");
     }
@@ -35,7 +36,8 @@ public partial class ServerPage : ContentPage
     private async void SaveButton_Clicked(object sender, EventArgs e)
     {
         Debug.WriteLine("ServerPage.SaveButton");
-        if (BindingContext is Models.Server server)
+
+        if (BindingContext is Server server)
         {
             // Although XAML has validation support, it's a giant hassle to implement
             if (!await Validation.HostnameIsValid(server.Hostname)) return;
@@ -56,7 +58,8 @@ public partial class ServerPage : ContentPage
     private async void DeleteButton_Clicked(object sender, EventArgs e)
     {
         Debug.WriteLine("ServerPage.DeleteButton");
-        if (BindingContext is Models.Server server) 
+
+        if (BindingContext is Server server) 
         {
             server.DeleteFromCache();
             await Shell.Current.GoToAsync("..");

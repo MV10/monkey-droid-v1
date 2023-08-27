@@ -1,9 +1,10 @@
 ﻿
+using monkeydroid.Content;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Text.Json.Serialization;
 
-namespace monkeydroid.Models;
+namespace monkeydroid.ViewModels;
 
 internal class ServerList
 {

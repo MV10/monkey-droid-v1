@@ -1,5 +1,4 @@
-﻿
-namespace monkeydroid.Models;
+﻿namespace monkeydroid.Content;
 
 internal class PlaylistFile
 {

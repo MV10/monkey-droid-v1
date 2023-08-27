@@ -1,5 +1,5 @@
 ﻿
-namespace monkeydroid.Models;
+namespace monkeydroid.ViewModels;
 
 internal class About
 {

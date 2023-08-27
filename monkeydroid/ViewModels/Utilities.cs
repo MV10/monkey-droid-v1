@@ -1,7 +1,7 @@
 ﻿
-namespace monkeydroid.Models;
+namespace monkeydroid.ViewModels;
 
-internal class Controls
+internal class Utilities
 {
     public string ServerInfoHeader { get => MauiProgram.GetServerPageHeader(); }
 }

@@ -1,8 +1,9 @@
 ﻿
+using monkeydroid.Content;
 using monkeydroid.Utilities;
 using System.Collections.ObjectModel;
 
-namespace monkeydroid.Models;
+namespace monkeydroid.ViewModels;
 
 internal class Playlist
 {

@@ -1,5 +1,6 @@
 
 using CommandLineSwitchPipe;
+using monkeydroid.Content;
 using monkeydroid.Utilities;
 using System.Diagnostics;
 
@@ -20,7 +21,7 @@ public partial class ServerListPage : ContentPage
     {
         Debug.WriteLine("ServerListPage.OnAppearing");
         MauiProgram.LoadCache();
-        BindingContext = new Models.ServerList();
+        BindingContext = new ViewModels.ServerList();
     }
 
     private async void Add_Clicked(object sender, EventArgs e)
@@ -35,7 +36,7 @@ public partial class ServerListPage : ContentPage
 
         try
         {
-            var server = (Models.Server)e.CurrentSelection[0];
+            var server = (Server)e.CurrentSelection[0];
             Debug.WriteLine($"ServerListPage.Selection\tid {server.Id}");
 
             var action = await DisplayActionSheet($"Server {server.Hostname}:{server.Port}", "Cancel", "Delete", "Use", "Test", "Edit");
@@ -49,7 +50,7 @@ public partial class ServerListPage : ContentPage
                 if (await DisplayAlert("Delete?", $"Confirm you wish to delete {server.Hostname}", "Ok", "Cancel"))
                 {
                     server.DeleteFromCache();
-                    BindingContext = new Models.ServerList();
+                    BindingContext = new ViewModels.ServerList();
                 }
                 return;
             }
