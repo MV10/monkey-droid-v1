@@ -2,7 +2,7 @@
 
 A simple remote-control UI for the [monkey-hi-hat](https://github.com/MV10/monkey-hi-hat) audio visualization app.
 
-> Version 1.0.0 has been released! Install from the monkey-hi-hat [release](https://github.com/MV10/monkey-hi-hat/releases) page.
+> Version 1.0.1 has been released! Install from the monkey-hi-hat [release](https://github.com/MV10/monkey-hi-hat/releases) page.
 
 Requires version 1.1.0 or newer of monkey-hi-hat.
 
