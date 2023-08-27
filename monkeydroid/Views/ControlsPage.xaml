@@ -5,17 +5,14 @@
              x:Class="monkeydroid.Views.ControlsPage"
              Title="Controls">
     
-    <ContentPage.BindingContext>
-        <models:Controls />
-    </ContentPage.BindingContext>
-
     <Grid x:Name="gridContent"
           RowDefinitions="Auto,*,*,*,*,*,Auto"
           ColumnDefinitions="*,*"
           ColumnSpacing="10"
           Margin="10">
 
-        <Label Text="{Binding ServerInfoHeader}"
+        <Label Text="{Binding ServerInfoHeader, Source={models:SharedServerData}}"
+               BindingContext="{Binding Source={models:SharedServerData}}"
                Grid.ColumnSpan="2"
                HorizontalOptions="Center" />
 

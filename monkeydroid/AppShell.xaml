@@ -6,6 +6,7 @@
     xmlns:views="clr-namespace:monkeydroid.Views"
     Shell.FlyoutBehavior="Disabled">
 
+    <!-- Note that Route values are referenced in MauiProgram.GetServerPageHeader -->
     <TabBar>
         <ShellContent Route="serverlist"
             Title="Servers"

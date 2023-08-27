@@ -16,7 +16,7 @@
     <Grid x:Name="gridContent"
           RowDefinitions="Auto,*,Auto,Auto">
 
-        <Label Text="{Binding ServerInfoHeader}"
+        <Label Text="{Binding ServerInfoHeader, Source={models:SharedServerData}}"
                Grid.Row="0"
                VerticalOptions="Center"
                HorizontalOptions="Center" />

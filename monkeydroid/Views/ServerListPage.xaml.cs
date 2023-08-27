@@ -2,6 +2,7 @@
 using CommandLineSwitchPipe;
 using monkeydroid.Content;
 using monkeydroid.Utilities;
+using monkeydroid.ViewModels;
 using System.Diagnostics;
 
 namespace monkeydroid.Views;
@@ -21,7 +22,7 @@ public partial class ServerListPage : ContentPage
     {
         Debug.WriteLine("ServerListPage.OnAppearing");
         MauiProgram.LoadCache();
-        BindingContext = new ViewModels.ServerList();
+        BindingContext = new ServerList();
     }
 
     private async void Add_Clicked(object sender, EventArgs e)
@@ -50,7 +51,7 @@ public partial class ServerListPage : ContentPage
                 if (await DisplayAlert("Delete?", $"Confirm you wish to delete {server.Hostname}", "Ok", "Cancel"))
                 {
                     server.DeleteFromCache();
-                    BindingContext = new ViewModels.ServerList();
+                    BindingContext = new ServerList();
                 }
                 return;
             }

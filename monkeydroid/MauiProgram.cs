@@ -77,24 +77,24 @@ public static class MauiProgram
         backgroundDetailReader = null;
     }
 
-    internal static string GetServerPageHeader(ServerHeaderTimestamp timestampType = ServerHeaderTimestamp.None)
+    internal static string GetServerPageHeader()
     {
         if (string.IsNullOrEmpty(ServerId)) return "·· no server selected ··";
         var server = Cache.GetServer(ServerId);
-        var timestamp = timestampType switch
+        var navigationRoute = Shell.Current.CurrentItem?.CurrentItem?.CurrentItem.Route ?? "null";
+        var timestamp = navigationRoute switch
         {
-            ServerHeaderTimestamp.None => 
-                string.Empty,
-
-            ServerHeaderTimestamp.Visualizers => 
-                server.RequestedVisualizersTimestamp.Equals(DateTime.MinValue) 
-                ? string.Empty 
+            "viz" =>
+                server.RequestedVisualizersTimestamp.Equals(DateTime.MinValue)
+                ? string.Empty
                 : $"  ··  {server.RequestedVisualizersTimestamp:ddd MMM dd, yyyy h:mm tt}",
 
-            ServerHeaderTimestamp.Playlists => 
-                server.RequestedPlaylistsTimestamp.Equals(DateTime.MinValue) 
+            "playlist" =>
+                server.RequestedPlaylistsTimestamp.Equals(DateTime.MinValue)
                 ? string.Empty
                 : $"  ··  {server.RequestedPlaylistsTimestamp:ddd MMM dd, yyyy h:mm tt}",
+
+            _ => string.Empty,
         };
 
         return $"·· {server.HostAndPort}{timestamp} ··";

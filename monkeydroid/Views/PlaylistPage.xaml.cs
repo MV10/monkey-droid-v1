@@ -12,7 +12,7 @@ public partial class PlaylistPage : ContentPage
 
     public PlaylistPage()
 	{
-		InitializeComponent();
+        InitializeComponent();
         activityIndicator = gridContent.AddActivityIndicator(0, 4);
     }
 

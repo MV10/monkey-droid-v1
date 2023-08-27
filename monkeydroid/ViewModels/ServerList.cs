@@ -2,15 +2,11 @@
 using monkeydroid.Content;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Text.Json.Serialization;
 
 namespace monkeydroid.ViewModels;
 
 internal class ServerList
 {
-    [JsonIgnore]
-    public string ServerInfoHeader { get => MauiProgram.GetServerPageHeader(); }
-
     public ObservableCollection<Server> Servers { get; private set; } = MauiProgram.Cache.Servers;
 
     public ServerList()

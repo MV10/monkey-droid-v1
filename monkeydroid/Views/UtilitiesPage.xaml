@@ -5,15 +5,11 @@
              x:Class="monkeydroid.Views.UtilitiesPage"
              Title="Utilities">
 
-    <ContentPage.BindingContext>
-        <models:Utilities />
-    </ContentPage.BindingContext>
-
     <Grid x:Name="gridContent"
           ColumnDefinitions="*"
           RowDefinitions="Auto,Auto,*,Auto">
 
-        <Label Text="{Binding ServerInfoHeader}"
+        <Label Text="{Binding ServerInfoHeader, Source={models:SharedServerData}}"
                Grid.Row="0"
                HorizontalOptions="Center" />
 

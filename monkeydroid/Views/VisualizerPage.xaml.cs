@@ -3,6 +3,7 @@ using CommandLineSwitchPipe;
 using monkeydroid.ViewModels;
 using monkeydroid.Utilities;
 using monkeydroid.Content;
+using System.Diagnostics;
 
 namespace monkeydroid.Views;
 
@@ -12,7 +13,7 @@ public partial class VisualizerPage : ContentPage
 
     public VisualizerPage()
 	{
-		InitializeComponent();
+        InitializeComponent();
         activityIndicator = gridContent.AddActivityIndicator(0, 4);
     }
 
