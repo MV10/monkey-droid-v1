@@ -40,28 +40,21 @@ public partial class ServerPage : ContentPage
         if (BindingContext is Server server)
         {
             // Although XAML has validation support, it's a giant hassle to implement
-            if (!await Validation.HostnameIsValid(server.Hostname)) return;
-            if (!await Validation.PortNumberIsValid(server.Port)) return;
+            if (!await Validation.HostnameIsValid(server.Hostname))
+            {
+                txtHostname.Focus();
+                return;
+            }
+
+            if (!await Validation.PortNumberIsValid(server.Port))
+            {
+                txtPort.Focus();
+                return;
+            }
 
             var index = server.GetIndexById();
-            if (index > -1) MauiProgram.Cache.Servers.RemoveAt(index);
-            MauiProgram.Cache.Servers.Add(server);
+            if (index == -1) MauiProgram.Cache.Servers.Add(server);
             MauiProgram.SaveCache();
-            await Shell.Current.GoToAsync("..");
-        }
-        else
-        {
-            Debug.WriteLine("ServerPage.SaveButton: BindingContext was not Models.Server type");
-        }
-    }
-
-    private async void DeleteButton_Clicked(object sender, EventArgs e)
-    {
-        Debug.WriteLine("ServerPage.DeleteButton");
-
-        if (BindingContext is Server server) 
-        {
-            server.DeleteFromCache();
             await Shell.Current.GoToAsync("..");
         }
         else

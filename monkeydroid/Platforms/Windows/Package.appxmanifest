@@ -10,7 +10,7 @@
 	  https://stackoverflow.com/a/42590908/152997 
   -->
 
-	<Identity Name="monkey-droid" Publisher="CN=Mindmagma, OU=Mindmagma, O=Mindmagma, L=Low Earth Orbit, S=Third Stone from the Sun, C=US" Version="1.0.0.0" />
+	<Identity Name="monkey-droid" Publisher="CN=Mindmagma, OU=Mindmagma, O=Mindmagma, L=Low Earth Orbit, S=Third Stone from the Sun, C=US" Version="1.0.1.0" />
 
 	<mp:PhoneIdentity PhoneProductId="8EBDEC2E-F7B7-48D1-B7AC-54D7AFF0483B" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
