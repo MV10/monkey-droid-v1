@@ -2,9 +2,9 @@
 
 A simple remote-control UI for the [monkey-hi-hat](https://github.com/MV10/monkey-hi-hat) audio visualization app.
 
-> Version 1.0.1 has been released! Install from the monkey-hi-hat [release](https://github.com/MV10/monkey-hi-hat/releases) page.
+> The Version 1.x repository has been archived. Version 2.x is a complete from-scratch rewrite. 
 
-Requires version 1.1.0 or newer of monkey-hi-hat.
+Version 1.0.1 has been released! Install from the monkey-hi-hat [release](https://github.com/MV10/monkey-hi-hat/releases) page. Requires version 1.1.0 or newer of monkey-hi-hat.
 
 Note that this communicates with monkey-hi-hat over the local network, so you must set the `UnsecuredPort` option in the monkey-hi-hat `mhh.conf` configuration file to tell it to listen for commands via TCP.
 
